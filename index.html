@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ледянкин Валерий Игоревич</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">ПЕРСОНАЛЬНЫЙ ГРАФ</div>
+        <h1>Ледянкин Валерий Игоревич</h1>
+        <p>Интерактивный просмотр загруженного графа</p>
+      </div>
+      <div class="stats" id="stats">Загрузка…</div>
+    </header>
+
+    <section class="graph-shell">
+      <svg id="graph" role="img" aria-label="Интерактивный граф"></svg>
+      <div class="hint">Узлы зафиксированы · граф зафиксирован · двигаются только неоновые снежинки</div>
+      <div class="legend">
+        <span><i class="dot person"></i> person</span>
+        <span><i class="dot location"></i> location</span>
+        <span><i class="dot website"></i> website</span>
+        <span><i class="dot phone"></i> phone</span>
+        <span><i class="dot text"></i> text</span>
+        <span><i class="dot image"></i> image</span>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel" hidden>
+      <button class="close" id="close" aria-label="Закрыть">×</button>
+      <div class="panel-type" id="panelType"></div>
+      <h2 id="panelTitle"></h2>
+      <div class="panel-content" id="panelContent"></div>
+    </aside>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
