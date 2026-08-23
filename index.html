@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Hub — GitHub Pages</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg"></div>
+  <header>
+    <div class="brand"><span class="logo">✦</span><div><b>AI HUB</b><small>универсальный ИИ</small></div></div>
+    <div class="status"><i></i> готов к работе</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="pill">TEXT • IMAGE • VIDEO • CODE</div>
+      <h1>Один интерфейс<br><span>для любых ИИ-задач</span></h1>
+      <p>Чат, изображения, видео и код. Сайт работает как статическое приложение GitHub Pages и подключается к выбранному тобой AI API.</p>
+    </section>
+
+    <section class="workspace">
+      <aside class="sidebar">
+        <button class="nav active" data-mode="chat">◉ <span>Чат</span></button>
+        <button class="nav" data-mode="image">▧ <span>Изображение</span></button>
+        <button class="nav" data-mode="video">▶ <span>Видео</span></button>
+        <button class="nav" data-mode="code">⌘ <span>Код</span></button>
+        <div class="side-bottom">
+          <button id="settingsBtn">⚙ Настройки API</button>
+          <small>Ключи хранятся только в браузере.</small>
+        </div>
+      </aside>
+
+      <section class="panel">
+        <div class="panel-head"><div id="modeTitle">ИИ-чат</div><span id="modelBadge">API не настроен</span></div>
+        <div id="messages" class="messages">
+          <div class="welcome">
+            <div class="orb">✦</div>
+            <h2>Что создаём?</h2>
+            <p>Напиши запрос ниже. Для изображения или видео выбери соответствующий режим.</p>
+          </div>
+        </div>
+        <form id="promptForm" class="composer">
+          <textarea id="prompt" rows="2" placeholder="Напиши любой запрос…"></textarea>
+          <button id="send" type="submit">➜</button>
+        </form>
+        <div class="hint">Enter — отправить · Shift+Enter — новая строка</div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="settings">
+    <form method="dialog" id="settingsForm">
+      <button class="close">×</button>
+      <h2>Настройка AI API</h2>
+      <p class="muted">GitHub Pages не может безопасно хранить секретный API-ключ. Поэтому ключ вводится локально и сохраняется в localStorage.</p>
+      <label>OpenAI-compatible URL
+        <input id="apiUrl" placeholder="https://your-provider.example/v1">
+      </label>
+      <label>API key
+        <input id="apiKey" type="password" placeholder="sk-…">
+      </label>
+      <label>Модель
+        <input id="model" placeholder="your-model">
+      </label>
+      <div class="row">
+        <button class="secondary" type="button" id="clearKey">Удалить ключ</button>
+        <button class="primary" value="save">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
