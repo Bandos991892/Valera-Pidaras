@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#09000f">
+<title>Тебе 💗</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Pacifico&display=swap');
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Comfortaa,sans-serif;color:#fff}
+body{min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#3a082c 0,transparent 34%),linear-gradient(145deg,#12000f,#070008 55%,#18000e);display:flex;justify-content:center;align-items:center}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px);background-size:50px 50px;pointer-events:none}
+.bg-glow{position:fixed;width:55vmax;height:55vmax;border-radius:50%;background:#ff1493;opacity:.08;filter:blur(90px);animation:pulse 5s infinite;pointer-events:none}
+.glow2{right:-25vmax;bottom:-25vmax;animation-delay:2s}.glow1{left:-25vmax;top:-25vmax}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:20;background:radial-gradient(circle,#28051f,#080008 70%);transition:opacity 1.2s,visibility 1.2s}
+.screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro{text-align:center;padding:25px}
+.intro .mini{letter-spacing:5px;text-transform:uppercase;color:#ffacd9;font-size:13px;text-shadow:0 0 15px #ff1493}
+.intro h1{font-family:Pacifico;font-size:clamp(45px,11vw,90px);font-weight:400;margin:20px 0 35px;text-shadow:0 0 8px #fff,0 0 25px #ff5cba,0 0 60px #ff1493}
+.open{border:1px solid #ff8bd0;border-radius:999px;padding:17px 34px;background:rgba(255,20,147,.13);color:white;font:600 16px Comfortaa;cursor:pointer;box-shadow:0 0 15px #ff1493, inset 0 0 15px rgba(255,20,147,.15);transition:.3s}
+.open:hover{transform:scale(1.05);box-shadow:0 0 30px #ff1493}
+.main{width:min(980px,92vw);margin:50px auto;padding:35px 25px 70px;text-align:center;position:relative;z-index:5;opacity:0;transform:translateY(30px);transition:1.2s}
+.main.show{opacity:1;transform:none}
+.photo-wrap{width:min(330px,70vw);height:min(420px,82vw);margin:0 auto 35px;padding:8px;border-radius:28px;background:linear-gradient(135deg,#ffb8e3,#ff1493,#8e155c);box-shadow:0 0 20px #ff1493,0 0 70px rgba(255,20,147,.45);transform:scale(.8);opacity:0;transition:1.1s .2s}
+.main.show .photo-wrap{transform:scale(1);opacity:1}
+.photo{width:100%;height:100%;border-radius:21px;object-fit:cover;display:block;background:linear-gradient(135deg,#3d0a2e,#160015)}
+.photo.placeholder{display:flex;align-items:center;justify-content:center;color:#ffb8e3;font-size:15px;padding:30px}
+.kicker{color:#ffacd9;letter-spacing:4px;text-transform:uppercase;font-size:13px;opacity:0;transform:translateY(15px);transition:.8s .5s;text-shadow:0 0 15px #ff1493}.main.show .kicker{opacity:1;transform:none}
+h2{font:400 clamp(43px,9vw,80px)/1.2 Pacifico;margin:12px 0;color:white;text-shadow:0 0 6px white,0 0 18px #ff9bd5,0 0 45px #ff1493;opacity:0;transform:translateY(20px);transition:.9s .7s}.main.show h2{opacity:1;transform:none}
+.age{font-family:Pacifico;font-size:clamp(80px,18vw,155px);color:#ff91cf;display:block;line-height:.95;text-shadow:0 0 7px #fff,0 0 18px #ff91cf,0 0 45px #ff1493,0 0 80px #ff1493}
+.message{max-width:760px;margin:25px auto;line-height:1.9;font-size:clamp(15px,2.4vw,20px);color:#ffe7f5;text-shadow:0 0 10px rgba(255,40,160,.55);opacity:0;transform:translateY(20px);transition:1s .95s}.main.show .message{opacity:1;transform:none}
+.signature{color:#ff9bd5;margin-top:30px;font-size:16px;opacity:0;transition:1s 1.2s}.main.show .signature{opacity:1}
+.heart{position:fixed;bottom:-60px;left:var(--x);width:var(--s);height:var(--s);background:#ff4db5;transform:rotate(45deg);border-radius:5px;z-index:2;box-shadow:0 0 8px #fff,0 0 20px #ff4db5,0 0 40px #ff1493;animation:up var(--t) linear var(--d) infinite;opacity:0}
+.heart:before,.heart:after{content:"";position:absolute;width:100%;height:100%;background:inherit;border-radius:50%}.heart:before{left:-50%}.heart:after{top:-50%}
+.note{margin:22px auto 0;font-size:12px;color:#ffacd9;opacity:.7}
+@keyframes up{0%{opacity:0;transform:translateY(0) rotate(45deg) scale(.6)}10%{opacity:.9}50%{transform:translate(var(--drift),-55vh) rotate(180deg) scale(1)}90%{opacity:.45}100%{opacity:0;transform:translate(calc(var(--drift)*-1),-120vh) rotate(340deg) scale(.65)}}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.12}}
+@media(max-width:600px){.main{padding-top:25px}.photo-wrap{height:330px}.message{line-height:1.7}.intro h1{margin-bottom:28px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg-glow glow1"></div><div class="bg-glow glow2"></div>
+
+<section class="screen" id="screen">
+  <div class="intro">
+    <div class="mini">маленький сюрприз для тебя</div>
+    <h1>Открой меня 💗</h1>
+    <button class="open" id="open">Открыть поздравление</button>
+    <div class="note">🎵 После нажатия начнётся музыка</div>
+  </div>
+</section>
+
+<main class="main" id="main">
+  <!-- Чтобы добавить фото, замени src ниже на имя файла, например photo.jpg -->
+  <div class="photo-wrap">
+    <img class="photo" src="photo.jpg" alt="Фото именинницы"
+         onerror="this.style.display='none';this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='💗<br><br>Здесь будет её фотография<br><small>Добавь файл photo.jpg рядом с index.html</small>'">
+  </div>
+  <div class="kicker">Для самой прекрасной девушки</div>
+  <h2>С наступающим</h2>
+  <span class="age">18</span>
+  <p class="message">
+    Пусть твои 18 лет станут началом невероятно красивой главы.
+    Желаю тебе море счастья, искренней любви, ярких приключений,
+    исполнения самых заветных желаний и людей рядом, с которыми
+    хочется смеяться и создавать самые тёплые воспоминания. ✨<br><br>
+    Пусть каждый новый день приносит тебе повод улыбаться,
+    а твои глаза всегда сияют так же ярко, как эти огоньки вокруг тебя. 💕
+  </p>
+  <div class="signature">С любовью и самыми тёплыми пожеланиями 💖</div>
+</main>
+
+<audio id="music" loop preload="auto">
+  <!-- Положи рядом с index.html свой music.mp3 -->
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const screen=document.getElementById('screen'),main=document.getElementById('main'),open=document.getElementById('open'),music=document.getElementById('music');
+
+open.addEventListener('click',()=>{
+  screen.classList.add('hide');
+  setTimeout(()=>main.classList.add('show'),350);
+  music.play().catch(()=>{});
+});
+
+for(let i=0;i<34;i++){
+  const h=document.createElement('div'); h.className='heart';
+  h.style.setProperty('--x',Math.random()*100+'vw');
+  h.style.setProperty('--s',8+Math.random()*19+'px');
+  h.style.setProperty('--t',8+Math.random()*10+'s');
+  h.style.setProperty('--d',-Math.random()*16+'s');
+  h.style.setProperty('--drift',(-120+Math.random()*240)+'px');
+  document.body.appendChild(h);
+}
+</script>
+</body>
+</html>
